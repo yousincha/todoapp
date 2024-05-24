@@ -1,0 +1,15 @@
+<html lang="ko"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultrag.net.nz/thymeleaf/layout">
+    <h1>Todo App</h1>
+    <form method="post" action="/addTodo">
+        <input type="text" name="todo" />
+        <input type="submit" value="Add Todo" />
+    </form>
+    <hr>
+    <ul>
+        <li th:each="todo : ${todos}">
+            <span th:text="${todo.todo}"></span>
+        </li>
+    </ul>
+</html>
