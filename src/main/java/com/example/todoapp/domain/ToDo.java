@@ -21,6 +21,7 @@ public class ToDo {
     @NotNull
     private String todo;
 
+    @Column(name = "ordering") // ordering 컬럼 추가
     private int ordering;
 
 }

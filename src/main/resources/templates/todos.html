@@ -27,11 +27,15 @@
                 </form>
                 <form method="post" action="/moveUpTodo" style="display:inline;" th:if="${!iterStat.first}">
                     <input type="hidden" name="id" th:value="${todo.id}" />
-                    <button type="submit" class="move-up-btn">Up</button>
+                    <button type="submit" class="move-up-btn">
+                        <img src="up.png" alt="Up" />
+                    </button>
                 </form>
                 <form method="post" action="/moveDownTodo" style="display:inline;" th:if="${!iterStat.last}">
                     <input type="hidden" name="id" th:value="${todo.id}" />
-                    <button type="submit" class="move-down-btn">Down</button>
+                    <button type="submit" class="move-down-btn">
+                        <img src="down.png" alt="Down" />
+                    </button>
                 </form>
 
             </div>
