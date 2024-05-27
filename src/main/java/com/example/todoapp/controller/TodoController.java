@@ -54,28 +54,28 @@ public class TodoController {
         redirectAttributes.addFlashAttribute("message", "Todo 업데이트에 성공하였습니다.");
         return "redirect:/";
     }
+    @PostMapping("/moveUpTodo")
+    public String moveUpTodo(@RequestParam("id") Long id, RedirectAttributes redirectAttributes) {
+        List<ToDo> todos = toDoRepository.findAll();
+        int index = findTodoIndexById(todos, id);
+        if (index > 0) {
+            Collections.swap(todos, index, index - 1);
+            toDoRepository.saveAll(todos);
+        }
+        return "redirect:/";
+    }
 
-//    @PostMapping("/moveUpTodo")
-//    public String moveUpTodo(@RequestParam("id") Long id, RedirectAttributes redirectAttributes) {
-//        List<ToDo> todos = toDoRepository.findAll();
-//        int index = findTodoIndexById(todos, id);
-//        if (index > 0) {
-//            Collections.swap(todos, index, index - 1);
-//            toDoRepository.saveAll(todos);
-//        }
-//        return "redirect:/";
-//    }
-//
-//    @PostMapping("/moveDownTodo")
-//    public String moveDownTodo(@RequestParam("id") Long id, RedirectAttributes redirectAttributes) {
-//        List<ToDo> todos = toDoRepository.findAll();
-//        int index = findTodoIndexById(todos, id);
-//        if (index < todos.size() - 1) {
-//            Collections.swap(todos, index, index + 1);
-//            toDoRepository.saveAll(todos);
-//        }
-//        return "redirect:/";
-//    }
+    @PostMapping("/moveDownTodo")
+    public String moveDownTodo(@RequestParam("id") Long id, RedirectAttributes redirectAttributes) {
+        List<ToDo> todos = toDoRepository.findAll();
+        int index = findTodoIndexById(todos, id);
+        if (index < todos.size() - 1) {
+            Collections.swap(todos, index, index + 1);
+            toDoRepository.saveAll(todos);
+        }
+        return "redirect:/";
+    }
+
 
     private int findTodoIndexById(List<ToDo> todos, Long id) {
         for (int i = 0; i < todos.size(); i++) {

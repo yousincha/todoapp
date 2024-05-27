@@ -7,7 +7,7 @@ import org.springframework.stereotype.Repository;
 import java.util.Locale;
 
 @Repository
-public interface ToDoRepository extends JpaRepository<ToDo, Long> {
-    ToDo findFirstByOrderByOrderDesc();
-}
 
+public interface ToDoRepository extends JpaRepository<ToDo, Long> {
+    ToDo findFirstByOrderByIdDesc();
+}

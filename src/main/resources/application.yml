@@ -1,10 +1,8 @@
-# Spring Data Source ?? - MySQL DB?? ??? ??
-
 spring:
   datasource:
     url: jdbc:mysql://127.0.0.1:3307/examplesdb?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=Asia/Seoul
-    username: [사용자 이름]
-    password: [비밀번호]
+    username: root
+    password: Yooshin1004!
     driver-class-name: com.mysql.cj.jdbc.Driver
   jpa:
     hibernate:

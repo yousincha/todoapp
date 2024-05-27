@@ -21,4 +21,6 @@ public class ToDo {
     @NotNull
     private String todo;
 
+    private int ordering;
+
 }

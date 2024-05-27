@@ -25,14 +25,15 @@
                     <input type="hidden" name="id" th:value="${todo.id}" />
                     <button type="submit" class="update-btn">Update</button>
                 </form>
-<!--                <form method="post" action="/moveUpTodo" style="display:inline;" th:if="${!iterStat.first}">-->
-<!--                    <input type="hidden" name="id" th:value="${todo.id}" />-->
-<!--                    <button type="submit" class="move-up-btn">Up</button>-->
-<!--                </form>-->
-<!--                <form method="post" action="/moveDownTodo" style="display:inline;" th:if="${!iterStat.last}">-->
-<!--                    <input type="hidden" name="id" th:value="${todo.id}" />-->
-<!--                    <button type="submit" class="move-down-btn">Down</button>-->
-<!--                </form>-->
+                <form method="post" action="/moveUpTodo" style="display:inline;" th:if="${!iterStat.first}">
+                    <input type="hidden" name="id" th:value="${todo.id}" />
+                    <button type="submit" class="move-up-btn">Up</button>
+                </form>
+                <form method="post" action="/moveDownTodo" style="display:inline;" th:if="${!iterStat.last}">
+                    <input type="hidden" name="id" th:value="${todo.id}" />
+                    <button type="submit" class="move-down-btn">Down</button>
+                </form>
+
             </div>
         </li>
     </ul>
