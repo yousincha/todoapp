@@ -20,4 +20,5 @@ public class ToDo {
 
     @NotNull
     private String todo;
+
 }

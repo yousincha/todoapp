@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Edit Todo</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div class="container">
+    <h1>Edit Todo</h1>
+    <form method="post" action="/updateTodo">
+        <input type="hidden" name="id" th:value="${todo.id}" />
+        <input type="text" name="todo" th:value="${todo.todo}" placeholder="Todo 리스트를 수정하세요." />
+        <input type="submit" value="Update Todo" />
+    </form>
+</div>
+</body>
+</html>

@@ -1,15 +1,41 @@
-<html lang="ko"
-      xmlns:th="http://www.thymeleaf.org"
-      xmlns:layout="http://www.ultrag.net.nz/thymeleaf/layout">
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Todo App</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div class="container">
     <h1>Todo App</h1>
     <form method="post" action="/addTodo">
-        <input type="text" name="todo" />
+        <input type="text" name="todo" placeholder="Todo 리스트를 입력하세요." />
         <input type="submit" value="Add Todo" />
     </form>
     <hr>
     <ul>
-        <li th:each="todo : ${todos}">
+        <li th:each="todo, iterStat : ${todos}">
             <span th:text="${todo.todo}"></span>
+            <div class="button-container">
+                <form method="post" action="/deleteTodo" style="display:inline;">
+                    <input type="hidden" name="id" th:value="${todo.id}" />
+                    <button type="submit" class="delete-btn">Delete</button>
+                </form>
+                <form method="get" action="/editTodo" style="display:inline;">
+                    <input type="hidden" name="id" th:value="${todo.id}" />
+                    <button type="submit" class="update-btn">Update</button>
+                </form>
+<!--                <form method="post" action="/moveUpTodo" style="display:inline;" th:if="${!iterStat.first}">-->
+<!--                    <input type="hidden" name="id" th:value="${todo.id}" />-->
+<!--                    <button type="submit" class="move-up-btn">Up</button>-->
+<!--                </form>-->
+<!--                <form method="post" action="/moveDownTodo" style="display:inline;" th:if="${!iterStat.last}">-->
+<!--                    <input type="hidden" name="id" th:value="${todo.id}" />-->
+<!--                    <button type="submit" class="move-down-btn">Down</button>-->
+<!--                </form>-->
+            </div>
         </li>
     </ul>
+</div>
+</body>
 </html>
