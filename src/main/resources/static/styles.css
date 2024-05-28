@@ -57,15 +57,26 @@ li {
     padding: 30px;
     border-bottom: 1px solid #ddd;
 }
+
 li:first-child {
     padding-top: 20px;
 }
+
 li:last-child {
     border-bottom: none;
 }
 
 .button-container {
     display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 60px; /* li 높이와 동일하게 설정 */
+    margin-right: 0;
+}
+
+li:first-child .move-down-btn,
+li:last-child .move-up-btn{
+    margin-right: 40px;
 }
 
 .delete-btn,
@@ -93,6 +104,7 @@ li:last-child {
 .update-btn:hover {
     background-color: #286370;
 }
+
 .move-up-btn,
 .move-down-btn {
     background-color: transparent;
